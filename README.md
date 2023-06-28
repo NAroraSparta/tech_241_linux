@@ -360,6 +360,59 @@ scp -i ~/.ssh/tech241-neha-az-key -r ./app adminuser@40.120.57.73:/home/adminuse
 
 rsync
 
+### Steps to access the Sparta_App using nodejs #####
+
+rm -rf <file_name>              To delete the named file/folder forcefully and recursively.
+
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+
+sudo apt install nodejs -y              To install node.js on your local Ubuntu Linux machine
+
+sudo npm install pm2 -g                 pm helps run apps in the background (PM2 is an advanced process manager for running Node.js applications. That provides an easier option to automate a Node.js application.)
+
+cd tech241_sparta_app/              You need to be inside the sparta_app to run/install npm commands
+
+ls
+npm install                         saves any specified packages into dependencies by default
+ls
+node app.js                         Node.js is a platform for building fast and scalable server applications using JavaScript. Node.js is the runtime and npm is the Package Manager for Node.js modules.
+
+Go to azure networking and add port 3000 and TCP so that you can access the sparta_app.
+
+ctrl + z                        is used to suspend a process. (This means that the program or command you are running will be temporarily halted and put in the background, taking up no resources. This can be useful if you need to free up RAM or CPU cycles for other tasks.)
+
+ps aux                          To monitor processes running on your Linux system.
+
+npm start                       To start the process again
+
+kill -1 <PID>                   To kill process, go slow first.
+kill <PID>                      To kill process forcefully
+kill -9 <PID>                   To kill with brute force
+
+### ctrl c is used to kill a process. It terminates your program.
+### ctrl z is used to pause the process. It will not terminate your program, it will keep your program in background. You can restart your program from that point where you used ctrl z.
+
+## Requirements to run Database VM
+
+1. sudo apt update -y
+2. sudo apt upgrade -y
+3. wget -qO - https://www.mongodb.org/static/pgp/server-3.2.asc | sudo apt-key add -
+4. echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+5. sudo apt update -y
+6. sudo apt-get install -y mongodb-org=3.2.20 mongodb-org-server=3.2.20 mongodb-org-shell=3.2.20 mongodb-org-mongos=3.2.20 mongodb-org-tools=3.2.20
+7. sudo nano /etc/mongod.conf
+8. Change the bindip from 127.0.0.1 to bindI.0.0.0.0    (save n exit from Nano editor)
+9. cat /etc/mongod.conf
+10. sudo systemctl status mongod
+
+
+
+
+
+
+
+
+
 
 
 
